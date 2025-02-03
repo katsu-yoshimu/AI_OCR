@@ -1,0 +1,3 @@
+google-generativeai
+openpyxl
+grpcio==1.60.1
