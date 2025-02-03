@@ -6,7 +6,7 @@
 
 ## 環境構築
 
-前提：ローカルPCに **git、ptyhon3.12** がインストール済 ＆ Gemini APIキー取得済
+前提：ローカルPCに **git、ptyhon3.12** がインストール済 ＆  ＆ **Gemini APIキー** 取得済
 
 1. **ローカルPCにリポジトリのクーロン作成:**
 
@@ -29,14 +29,14 @@
    pip install -r requirements.txt
    ```
 
-4. Gemini APIキー値を環境変数に設定
+4. **Gemini APIキー値を環境変数に設定:**
 
    ```cmd:コマンドプロンプト
-   set GEMINI_API_KEY=AIzaSyDh_NpQrM10vja65Bme0Gt_C2hPXQQwAUY
+   set GEMINI_API_KEY=（ここは取得したAPIキー値で置き換えてください）
    ```
 
    ```PowerShell:PowerShell
-   $Env:GEMINI_API_KEY = "AIzaSyDh_NpQrM10vja65Bme0Gt_C2hPXQQwAUY"
+   $Env:GEMINI_API_KEY = "（ここは取得したAPIキー値で置き換えてください）"
    ```
 
 ## 実行
