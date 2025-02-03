@@ -16,6 +16,7 @@ def get_gemini_api_key():
     if not api_key:
         print("エラー: 環境変数 'GEMINI_API_KEY' が設定されていません。設定してください。")
         exit(1)
+    return api_key
 
 def get_mime_type(filepath):
     """ファイルの拡張子からMIMEタイプを取得する"""
@@ -27,8 +28,6 @@ def get_mime_type(filepath):
 def read_file(filepath):
     """ファイルを読み込み、バイナリデータを返す"""
     mime_type = get_mime_type(filepath)
-    if not mime_type:
-      raise ValueError(f"対応していないファイル形式です: {filepath}")
     with open(filepath, "rb") as f:
         return f.read(), mime_type
 
@@ -88,8 +87,7 @@ def markdown_to_excel(markdown_text, excel_file):
             in_table = True
             row_data = [cell.strip() for cell in line.split("|")[1:-1]]
             row_data = [cell.replace("<br>", "\n").replace("<BR>", "\n") for cell in row_data]
-            # row_data が すべて「-」の時＝表のヘッダとデータの区切り行は追加しない
-            if (is_markdown_table_separator(row_data)) == False:
+            if not is_markdown_table_separator(row_data):
                 table_data.append(row_data)
         else:
             if in_table:
@@ -162,7 +160,7 @@ def adjust_column_width(sheet):
         sheet.column_dimensions[get_column_letter(col)].width = adjusted_width
 
 def process_response(response, outfiletype, outfile):
-    # レスポンス処理とファイル出力のロジック
+    """Geminiのレスポンスを処理し、指定された形式でファイルに出力する"""
     response_text = response.text
     file_content = extract_file_content(response_text)
     if file_content == None:
