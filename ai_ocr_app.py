@@ -20,6 +20,10 @@ def get_mime_type(file):
         "jpeg": "image/jpeg",
         "jpg": "image/jpeg",
         "png": "image/png",
+        "tiff": "image/tiff",
+        "tif": "image/tiff",
+        "bmp": "image/bmp",
+        "gif": "image/gif",
         "pdf": "application/pdf",
     }
     return mime_types.get(ext)
@@ -42,7 +46,7 @@ def extract_file_content(response_text):
 def upload_file():
     """ファイルアップロード画面を表示し、アップロードされたファイルを返す"""
     st.header("ファイルアップロード")
-    uploaded_file = st.file_uploader("PDFまたは画像ファイルをアップロードしてください", type=["pdf", "png", "jpg", "jpeg"])
+    uploaded_file = st.file_uploader("PDFまたは画像ファイルをアップロードしてください", type=["pdf", "png", "jpg", "jpeg", "tif", "tiff", "bmp", "gif"])
     return uploaded_file
 
 def convert_to_html(file):
