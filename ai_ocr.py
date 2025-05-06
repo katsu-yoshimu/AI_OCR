@@ -214,7 +214,7 @@ def main():
         api_key = get_gemini_api_key()
         genai.configure(api_key=api_key)
 
-        model = genai.GenerativeModel("gemini-2.0-flash-exp")
+        model = genai.GenerativeModel("gemini-2.5-flash-preview-04-17")
         file_data, mime_type = read_file(infile)
 
         prompt = create_prompt(mime_type, outfiletype)
