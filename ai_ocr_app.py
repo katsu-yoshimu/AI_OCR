@@ -11,7 +11,7 @@ if not GEMINI_API_KEY:
 
 # Geminiの設定
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-2.5-flash')
 
 def get_mime_type(file):
     """ファイルの拡張子からMIMEタイプを取得する"""
